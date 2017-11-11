@@ -12,4 +12,13 @@ class Movie extends Model
   {
     return $this->belongsTo('App\production_company');
   }
+
+  public function actors()
+  {
+    return $this->belongsToMany('App\Actor', 'roles')
+      ->as('role')
+      ->withPivot('character_name', 'base_pay', 'revenue_share')
+      ->withTimestamps()
+      ->using('App\Role');
+  }
 }
