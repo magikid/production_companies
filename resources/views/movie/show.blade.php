@@ -60,5 +60,6 @@
   <div class="row">
     <div class="col-md-2"><h2>Actors</h2></div>
   </div>
+  @include('actor.header')
   @each('actor._actor', $movie->actors, 'actor')
 @endsection
