@@ -12,4 +12,9 @@ class production_company extends Model
    *  @var array
    */
   protected $fillable = ['name'];
+
+  public function movies()
+  {
+    return $this->hasMany('App\movie');
+  }
 }
