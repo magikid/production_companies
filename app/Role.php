@@ -10,6 +10,10 @@ class Role extends Pivot
 
   protected $table = 'roles';
 
+  public function salary(int $movie_income){
+    return $this->base_pay + ($this->revenue_share / 100) * $movie_income;
+  }
+
   public function movie()
   {
     return $this->belongsTo('App\Movie');

@@ -14,7 +14,7 @@ class ActorController extends Controller
      */
     public function index()
     {
-        //
+      return view('actor.index', ['actors' => Actor::all()]);
     }
 
     /**
@@ -46,7 +46,7 @@ class ActorController extends Controller
      */
     public function show(Actor $actor)
     {
-        //
+      return view('actor.show', ['actor' => $actor]);
     }
 
     /**
@@ -80,6 +80,6 @@ class ActorController extends Controller
      */
     public function destroy(Actor $actor)
     {
-        //
+      return $actor->destroy();
     }
 }
