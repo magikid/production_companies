@@ -15,6 +15,6 @@ class production_company extends Model
 
   public function movies()
   {
-    return $this->hasMany('App\movie');
+    return $this->hasMany('App\Movie');
   }
 }

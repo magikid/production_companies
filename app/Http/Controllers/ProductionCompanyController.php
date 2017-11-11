@@ -14,7 +14,7 @@ class ProductionCompanyController extends Controller
      */
     public function index()
     {
-        //
+      return view('production_company.index', ['production_companies' => production_company::all()]);
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductionCompanyController extends Controller
      */
     public function show(production_company $production_company)
     {
-        //
+      return view('production_company.show', ['production_company' => $production_company]);
     }
 
     /**
