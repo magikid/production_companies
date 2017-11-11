@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resources([
+  'actors' => 'ActorController',
+  'movies' => 'MovieController',
+  'production_companies' => 'ProductionCompanyController'
+]);
