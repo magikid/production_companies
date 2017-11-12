@@ -31,7 +31,8 @@
               <a href="{{ route('movies.show', $movie->id) }}">{{$movie->name}}</a>@if(!$loop->last),@endif
             @endforeach
             </td>
-            <td><a href="{{ route('production_companies.show', $production_company->id) }}">Show</a> | <a href="{{ route('production_companies.edit', $production_company->id) }}">Edit</a> | <a href="{{ route('production_companies.destroy', $production_company->id) }}" data-method="delete">Delete</a></td>
+            <td><a href="{{ route('movies.show', $movie->id) }}">Show</a> | <a href="{{ route('movies.edit', $movie->id) }}">Edit</a> 
+              <td><a href="{{ route('production_companies.show', $production_company->id) }}">Show</a> | <a href="{{ route('production_companies.edit', $production_company->id) }}">Edit</a> | {{ Form::open(['method' => 'DELETE', 'route' => ['production_companies.destroy', $production_company->id]]) }}{{Form::submit('Delete', ['class' => 'btn'])}}{{Form::close()}}</td>
           </tr>
           @endforeach
         </tbody>

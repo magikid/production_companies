@@ -80,6 +80,7 @@ class ProductionCompanyController extends Controller
      */
     public function destroy(production_company $production_company)
     {
-        //
+      $production_company->destroy($production_company->id);
+      return redirect()->route('production_companies.index');
     }
 }

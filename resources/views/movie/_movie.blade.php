@@ -17,5 +17,5 @@
     @else
       <p>Failure</p>
     @endif
+  </div>
 </div>
-<hr>

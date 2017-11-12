@@ -26,10 +26,12 @@
           @foreach($actors as $actor)
           <tr>
             <td>{{ $actor->name }}</td>
-            @foreach($actor->movies as $movie)
+            @forelse($actor->movies as $movie)
               <td><a href="{{ route('movies.show', $movie->id) }}">{{$movie->name}}</a>@if(!$loop->last),@endif</td>
-            @endforeach
-            <td><a href="{{ route('actors.show', $actor->id) }}">Show</a> | <a href="{{ route('actors.edit', $actor->id) }}">Edit</a> | <a href="{{ route('actors.destroy', $actor->id) }}" data-method="delete">Delete</a></td>
+            @empty
+              <td></td>
+            @endforelse
+            <td><a href="{{ route('actors.show', $actor->id) }}">Show</a> | <a href="{{ route('actors.edit', $actor->id) }}">Edit</a> | {{ Form::open(['method' => 'DELETE', 'route' => ['actors.destroy', $actor->id]]) }}{{Form::submit('Delete', ['class' => 'btn'])}}{{Form::close()}}</td>
           </tr>
           @endforeach
         </tbody>

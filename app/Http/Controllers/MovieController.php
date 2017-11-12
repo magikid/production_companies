@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Movie;
+use App\production_company;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -24,7 +25,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+      $movie = new Movie;
+      $production_companies = $this->movie_form_company_select();
+      return view('movie.create', ['movie' => $movie, 'production_companies' => $production_companies]);
     }
 
     /**
@@ -35,7 +38,17 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $movie = new Movie;
+      $company = production_company::find($request->input('production_company'));
+
+      $movie->name = $request->input('name');
+      $movie->release_date = $request->input('release_date');
+      $movie->income = $request->input('income');
+      $movie->expense = $request->input('expense');
+
+      $company->movies()->save($movie);
+
+      return redirect()->route('movies.show', $movie->id);
     }
 
     /**
@@ -57,7 +70,8 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+      $production_companies = $this->movie_form_company_select();
+      return view('movie.edit', ['movie' => $movie, 'production_companies' => $production_companies]);
     }
 
     /**
@@ -69,7 +83,10 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+      $movie->name = $request->name;
+      $movie->save();
+
+      return redirect()->route('movies.show', $movie->id);
     }
 
     /**
@@ -80,6 +97,17 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-      return $movie->destroy();
+      $movie->destroy($movie->id);
+      return redirect()->route('movies.index');
+    }
+
+    private function movie_form_company_select()
+    {
+      return production_company::select('id', 'name')
+        ->get()
+        ->reduce(function($final_array, $company){
+          $final_array[$company->id] = $company->name;
+          return $final_array;
+        });
     }
 }

@@ -34,7 +34,7 @@
             <td>{{ money_format('$%i', $movie->income) }}</td>
             <td>{{ money_format('$%i', $movie->expense) }}</td>
             <td><a href="{{ route('production_companies.show', $movie->production_company->id) }}">{{$movie->production_company->name}}</a>
-            <td><a href="{{ route('movies.show', $movie->id) }}">Show</a> | <a href="{{ route('movies.edit', $movie->id) }}">Edit</a> | <a href="{{ route('movies.destroy', $movie->id) }}" data-method="delete">Delete</a></td>
+              <td><a href="{{ route('movies.show', $movie->id) }}">Show</a> | <a href="{{ route('movies.edit', $movie->id) }}">Edit</a> | {{ Form::open(['method' => 'DELETE', 'route' => ['movies.destroy', $movie->id]]) }}{{Form::submit('Delete', ['class'=>'btn'])}}{{Form::close()}}</td>
           </tr>
           @endforeach
         </tbody>

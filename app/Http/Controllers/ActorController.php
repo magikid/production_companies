@@ -24,7 +24,8 @@ class ActorController extends Controller
      */
     public function create()
     {
-        //
+      $actor = new Actor;
+      return view('actor.create', ['actor' => $actor]);
     }
 
     /**
@@ -35,7 +36,12 @@ class ActorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $actor = new Actor;
+
+      $actor->name = $request->input('name');
+      $actor->save();
+
+      return redirect()->route('actors.show', $actor->id);
     }
 
     /**
@@ -57,7 +63,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        //
+      return view('actor.edit', ['actor'=>$actor]);
     }
 
     /**
@@ -69,7 +75,10 @@ class ActorController extends Controller
      */
     public function update(Request $request, Actor $actor)
     {
-        //
+      $actor->name = $request->name;
+      $actor->save();
+
+      return redirect()->route('actors.show', $actor->id);
     }
 
     /**
@@ -80,6 +89,7 @@ class ActorController extends Controller
      */
     public function destroy(Actor $actor)
     {
-      return $actor->destroy();
+      $actor->destroy($actor->id);
+      return redirect()->route('actors.index');
     }
 }
