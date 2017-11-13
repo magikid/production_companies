@@ -17,7 +17,7 @@ class Movie extends Model
   {
     return $this->belongsToMany('App\Actor', 'roles')
       ->as('role')
-      ->withPivot('character_name', 'base_pay', 'revenue_share')
+      ->withPivot('character_name', 'base_pay', 'revenue_share', 'id')
       ->withTimestamps()
       ->using('App\Role');
   }

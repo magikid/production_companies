@@ -20,6 +20,7 @@
           <tr>
             <th>Name</th>
             <th>Movies</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +32,13 @@
             @empty
               <td></td>
             @endforelse
-            <td><a href="{{ route('actors.show', $actor->id) }}">Show</a> | <a href="{{ route('actors.edit', $actor->id) }}">Edit</a> | {{ Form::open(['method' => 'DELETE', 'route' => ['actors.destroy', $actor->id]]) }}{{Form::submit('Delete', ['class' => 'btn'])}}{{Form::close()}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <a class="btn btn-primary" role="button" href="{{ route('actors.show', $actor->id) }}">Show</a>
+                <a class="btn btn-primary" href="{{ route('actors.edit', $actor->id) }}">Edit</a>
+                {{ Form::open(['method' => 'DELETE', 'route' => ['actors.destroy', $actor->id]]) }}{{Form::submit('Delete', ['class' => 'btn btn-danger'])}}{{Form::close()}}
+              </div>
+            </td>
           </tr>
           @endforeach
         </tbody>

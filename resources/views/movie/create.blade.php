@@ -28,8 +28,8 @@
         {{ Form::number('expense', '', ['class' => 'form-control', 'min' => '0']) }}
       </div>
       <div class="form-group">
-        {{ Form::label('production_company', 'Production Company') }}
-        {{ Form::select('production_company', $production_companies, null, ['class' => 'form-control']) }}
+        {{ Form::label('production_company_id', 'Production Company') }}
+        {{ Form::select('production_company_id', $production_companies, null, ['class' => 'form-control']) }}
       </div>
       {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
       {{ Form::close() }}

@@ -8,6 +8,11 @@
       <h1>{{$actor->name}}</h1>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a href="{{ route('roles.create', ['actor_id' => $actor->id]) }}">Add a new role</a>
+    </div>
+  </div>
   <hr>
   <div class="row">
     <div class="col-md-12">
@@ -27,6 +32,9 @@
     <div class="col-md-2">
       <strong>Revenue Share</strong>
     </div>
+    <div class="col-md-2">
+      <strong>Delete role</strong>
+    </div>
   </div>
   @foreach($actor->movies as $movie)
     <div class="row">
@@ -41,6 +49,9 @@
       </div>
       <div class="col-md-2">
         <p>{{$movie->role->revenue_share}}%</p>
+      </div>
+      <div class="col-md-2">
+        {{ Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $movie->role->id]]) }}{{Form::submit('Delete', ['class'=>'btn'])}}{{Form::close()}}
       </div>
     </div>
   @endforeach

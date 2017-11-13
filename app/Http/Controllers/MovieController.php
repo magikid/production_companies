@@ -39,7 +39,7 @@ class MovieController extends Controller
     public function store(Request $request)
     {
       $movie = new Movie;
-      $company = production_company::find($request->input('production_company'));
+      $company = production_company::find($request->input('production_company_id'));
 
       $movie->name = $request->input('name');
       $movie->release_date = $request->input('release_date');

@@ -13,7 +13,7 @@
       {{ Form::model($actor, ['route' => 'actors.store']) }}
       <div class="form-group">
         {{ Form::label('name', 'Actor\'s name') }}
-        {{ Form::text('name', '', ['class' => 'form-control']) }}
+        {{ Form::text('name', null, ['class' => 'form-control']) }}
       </div>
       {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
       {{ Form::close() }}

@@ -17,9 +17,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-2">
-      <strong>Income</strong>
+  <div class="row"> <div class="col-md-2"> <strong>Income</strong>
     </div>
     <div class="col-md-2">
       {{money_format('$%i', $movie->income)}}
@@ -47,6 +45,7 @@
       @endif
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-md-2">
