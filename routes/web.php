@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#
+# This maps the restful functions to the named controller.
+# See [help docs](https://laravel.com/docs/5.5/controllers#resource-controllers) for more details.
+#
 Route::resources([
   'actors' => 'ActorController',
   'movies' => 'MovieController',

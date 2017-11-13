@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actor extends Model
 {
+  #
+  # This is the attribute that can be mass-assigned.
+  #
   protected $fillable = ['name'];
 
   public function movies()
