@@ -20,3 +20,7 @@ Route::resources([
   'movies' => 'MovieController',
   'production_companies' => 'ProductionCompanyController'
 ]);
+
+Route::resource('roles', 'RoleController', ['only' => [
+  'create', 'store', 'edit', 'update', 'destroy'
+]]);
