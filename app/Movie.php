@@ -21,4 +21,9 @@ class Movie extends Model
       ->withTimestamps()
       ->using('App\Role');
   }
+
+  public function script()
+  {
+    return $this->hasOne('App\Script');
+  }
 }

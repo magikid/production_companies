@@ -59,7 +59,16 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-      return view('movie.show', ['movie' => $movie]);
+      $line_counts = $movie->script->line_counts();
+      $spoken_word_count = $movie->script->spoken_word_count();
+      $character_references = $movie->script->character_references();
+
+      return view('movie.show', [
+        'movie' => $movie,
+        'line_counts' => $line_counts,
+        'spoken_word_count' => $spoken_word_count,
+        'character_references' => $character_references
+      ]);
     }
 
     /**

@@ -56,6 +56,44 @@
     </div>
   </div>
   <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Script Stats</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><strong>Actor</strong></div>
+    <div class="col-md-2"><strong>Lines spoken</strong></div>
+  </div>
+  @foreach($line_counts as $actor => $count)
+    <div class="row">
+      <div class="col-md-2">{{$actor}}</div>
+      <div class="col-md-2">{{$count}}</div>
+    </div>
+  @endforeach
+  <div class="row">
+    <div class="col-md-2"><strong>Actor</strong></div>
+    <div class="col-md-2"><strong>Words Spoken</strong></div>
+  </div>
+  @foreach($spoken_word_count as $actor => $count)
+    <div class="row">
+      <div class="col-md-2">{{$actor}}</div>
+      <div class="col-md-2">{{$count}}</div>
+    </div>
+  @endforeach
+  <div class="row">
+    <div class="col-md-2"><strong>Actor</strong></div>
+    <div class="col-md-2"><strong>References by Other Characters</strong></div>
+  </div>
+  @foreach($character_references as $actor => $count)
+    <div class="row">
+      <div class="col-md-2">{{$actor}}</div>
+      <div class="col-md-2">{{$count}}</div>
+    </div>
+  @endforeach
+  <hr>
+
   <div class="row">
     <div class="col-md-2"><h2>Actors</h2></div>
   </div>
