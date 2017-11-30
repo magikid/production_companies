@@ -19,7 +19,7 @@ base, actor revenue, movie production companies revenue, losses for each movie
 and a form that allows a user to enter an actor and map to a movie, base pay for
 the movie and rev share.
 
-Part II: 
+## Part II:
 Assume a movie script starts of each speaking and/or moving event which we will
 call a “line” with a reference to an Actor in the movie. The line can include
 more than one sentence and/or paragraphs. The line ends when a next reference to
